@@ -18,8 +18,8 @@ docker ps -a
 ```
 Docker run ubuntu
 ```
-> Porem como nao tem nenhum processo executando nele, ele nao aparecera no `docker ps`.
-> Para fazer com que ele apareca la vamos abrir um terminal nele para ter um processo rodando.
+> - Porem como nao tem nenhum processo executando nele, ele nao aparecera no `docker ps`.
+> - Para fazer com que ele apareca la vamos abrir um terminal nele para ter um processo rodando.
 
 #### Para abrir um terminal no conteiner do ubuntu use o comando abaixo.
 
