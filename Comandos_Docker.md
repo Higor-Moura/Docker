@@ -26,6 +26,7 @@ Docker run ubuntu
 ```bash
 docker run -it ubuntu bash
 ```
-** Explicação:**
+**Explicação:**
 
--  `-it` Modo interativo para permitir interação com o terminal.
+-  `-it`: Modo interativo para permitir interação com o terminal.
+-  `bash`: Inicia o shell Bash dentro do contêiner.
