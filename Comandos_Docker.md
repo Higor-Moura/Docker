@@ -13,9 +13,17 @@ docker ps
 ```
 docker ps -a
 ```
-#### 2. Comando para criar ou executar um conteiner.
+#### 2. Comando para criar ou executar um conteiner, no exemplo abaixo vou criar um com ubuntu.
 
 ```
-Docker run
+Docker run ubuntu
 ```
+> Porem como nao tem nenhum processo executando nele, ele nao aparecera no `docker ps`.
+> Para fazer com que ele apareca la vamos abrir um terminal nele para ter um processo rodando.
 
+#### Para abrir um terminal no conteiner do ubuntu use o comando abaixo.
+
+```
+# O "-it" é para interagir é de interativo, e o "bash" é para abrir o terminal
+docker run -it ubuntu bash
+```
