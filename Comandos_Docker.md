@@ -28,4 +28,4 @@ docker run -it ubuntu bash
 ```
 ** Explicação:**
 
-- ° `-it` Modo interativo para permitir interação com o terminal.
+-  `-it` Modo interativo para permitir interação com o terminal.
