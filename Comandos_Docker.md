@@ -24,6 +24,6 @@ Docker run ubuntu
 #### Para abrir um terminal no conteiner do ubuntu use o comando abaixo.
 
 ```
-# O "-it" é para interagir é de interativo, e o "bash" é para abrir o terminal
+#O "-it" é para interagir é de interativo, e o "bash" é para abrir o terminal
 docker run -it ubuntu bash
 ```
