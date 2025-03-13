@@ -31,3 +31,55 @@ docker run -it ubuntu bash
 
 -  `-it`: Modo interativo para permitir interação com o terminal.
 -  `bash`: Inicia o shell Bash dentro do contêiner.
+
+#### Para executar um comando dentro do conteiner 
+
+```bash
+docker exec -iti <id do conteiner> bash
+```
+
+#### Para parar os processos do conteiner.
+
+```bash
+docker stop <id do conteiner>
+```
+
+#### Para iniciar o conteiner.
+
+```bash
+docker start <id do conteiner>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
