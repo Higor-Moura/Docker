@@ -5,6 +5,7 @@
 ```
 docker ps
 ```
+> **ℹ️ Informação:**  
 > - Esse comando mostrará conteiners que tenha processo rodando! quando o conteiner nao tem processo rodando ele é finalizado.
 > - O conteiner so continuará executando caso tenha algum processo rodando nele.
 
