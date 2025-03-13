@@ -5,10 +5,12 @@
 ```
 docker ps
 ```
-> {% note %} 
+{% note %}
+Esta é uma caixa de nota importante!
+{% endnote %}
+
 > - Esse comando mostrará conteiners que tenha processo rodando! quando o conteiner nao tem processo rodando ele é finalizado.
 > - O conteiner so continuará executando caso tenha algum processo rodando nele.
-> {% endnote %}
 
 #### 1.1 Caso queira ver todos os conteiners mesmo os que ja pararam de executar use o comando a baixo.
 
