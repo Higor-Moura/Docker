@@ -5,6 +5,10 @@
 ```
 docker ps
 ```
+ou
+```
+docker container ls
+```
 > **ℹ️ Informação:** 
 > - Esse comando mostrará conteiners que tenha processo rodando! quando o conteiner nao tem processo rodando ele é finalizado.
 > - O conteiner so continuará executando caso tenha algum processo rodando nele.
@@ -13,6 +17,10 @@ docker ps
 
 ```
 docker ps -a
+```
+ou
+```
+docker container ls -a
 ```
 #### 2. Comando para criar ou executar um conteiner, no exemplo abaixo vou criar um com ubuntu.
 
@@ -29,7 +37,7 @@ docker run -it ubuntu bash
 ```
 **Explicação:**
 
--  `-it`: Modo interativo para permitir interação com o terminal.
+-  `-it`: `i` Modo interativo `t` utiliza o tty para  permitir interação com o terminal.
 -  `bash`: Inicia o shell Bash dentro do contêiner.
 
 #### Para executar um comando dentro do conteiner 
