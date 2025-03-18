@@ -58,30 +58,43 @@ docker stop <id do conteiner>
 docker start <id do conteiner>
 ```
 
+#### Para nomear um container 
 
+```bash
+docker run -dti --name <nome que voce quer> <imagem do container> 
+```
+> **ℹ️ Exemplo:** 
+> - `docker run -dti --name ubuntu-A ubuntu ` 
 
+# COPIA
 
+#### Copiar arquivo da maquina fisica para container
 
+```bash
+docker cp <nome do arquivo> <nome do container destino>:<caminho de destino>
+```
 
+> **ℹ️ Exemplo:** 
+> - `docker cp teste.txt ubuntu-A:/home` 
 
+#### Copiar arquivo do container para maquina fisica
 
+```bash
+docker cp <nome do container origem>:<origem do arquivo> <caminho de destino>
+```
 
+> **ℹ️ Exemplo:** 
+> - `docker cp ubuntu-A:/home/teste.txt /home/higor/virustrojan.txt` 
 
+# TAG
 
+> Uma tag Docker é um rótulo que aponta para uma imagem específica dentro de um repositório. Por padrão, o Docker usa a tag latest se nenhuma tag for especificada.
 
+**Ex: abaixo um exemplo do debian para baixar a versão 9**
 
-
-
-
-
-
-
-
-
-
-
-
-
+```bash
+docker pull debian:9
+```
 
 
 
