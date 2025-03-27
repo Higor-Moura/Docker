@@ -57,7 +57,7 @@ VOLUME /var/www/html
 # Especifica a porta do container que vai expor 
 EXPOSE 80
 
-# Expecificar qual aplicação vai utilizar, como vai ser uma aplicação executada em primeiro plano usarei o ENTRYPOINT para executar o arquivo do apache
+# Especificar qual aplicação vai utilizar, como vai ser uma aplicação executada em primeiro plano usarei o ENTRYPOINT para executar o arquivo do apache
 ENTRYPOINT ["/usr/sbin/apachectl"]
 
 # Indicar que o arquivo deve ser executado em primeiro plano
