@@ -68,7 +68,7 @@ networks:
 
 > Ele ja sabe qual é o arquivo e a opção `-d` é para rodar em segundo plano.
 ```bash
-docker-compose -d 
+docker-compose up -d 
 ```
 #### Verifique se subiu os containers 
 
