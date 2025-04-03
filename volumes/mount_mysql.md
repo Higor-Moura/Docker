@@ -2,6 +2,7 @@
 
 > É uma forma de dar acesso ao containers a arquivos e pastas do host.
 > Utilazado para nao perder dados caso o container caia.
+> No exemplo iremos usar o container de mysql
 > Antes de tudo temos que ver onde o container salva o banco de dados
 
 #### Para verificar onde os dados são salvos dentro do container.
