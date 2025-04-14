@@ -12,17 +12,24 @@ sudo vi pod_teste.yml
 **arquivo manifest com a configuração do pod**
 
 ```
+# versão da API
 apiVersion: v1
+# tipo do objeto que vamos criar, tipo do recurso 
 kind: Pod
-  
+# metadados 
 metadata:
+# nome do recurso
   name: pod_webserver
+# Etiquetas
   labels:
+# Definindo etiquetas
     apps: my-app
     tier: frontend
-    
+# Especificações dos pods  
 spec:
+# definindo container
   containers:
+# especificações do container
   - name: my-container-nginx
     image: nginx
 ```
