@@ -60,6 +60,25 @@ kubectl delete pods <nome do pod>
 
 # ReplicaSet Scale
 
-> Capacidade de aumentar ou diminuir a quantidade de PODs dentro do sistema
-> Basta aumentar ou diminuir a quantidade de `replicas` no final do arquivo `replicaset.yml`
-> feito isso so executar `kubectl apply -f replicaset.yml` 
+> - Capacidade de aumentar ou diminuir a quantidade de PODs dentro do sistema
+> - Basta aumentar ou diminuir a quantidade de `replicas` no final do arquivo `replicaset.yml`
+> - Feito isso so executar `kubectl apply -f replicaset.yml`
+
+**Dessa forma voce muda pelo arquivo, mas tambem tem a opção de fazer por comando**
+
+#### Scale por comando
+
+```
+kubectl scale replicasets frontend-rs --replicas=5 
+```
+
+> - `kubectl scale replicasets` = Comando para executar o scale
+> - `frontend-rs` = Nome do replicaset que voce quer executar o scale
+> - `--replicas=5` = Especifique quantas replicas voce deseja
+
+
+
+
+
+
+
