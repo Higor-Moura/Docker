@@ -113,4 +113,66 @@ kubectl describe deployment.apps/frontend-deployment
 
 # Rollout History
 
+> - É tipo um histórico de versões do seu app no Kubernetes.
+Serve pra você saber o que mudou da ultima alteração e poder voltar no tempo se der ruim.
+
+#### Comando para ver historico de versoes
+
+```
+kubectl rollout history deployment.apps/frontend-deployment
+```
+
+> - `kubectl rollout history` = Comando para ver historico
+> - `deployment.apps` = Especifica que é de deployment
+> - `frontend-deployment` = Nome do deployment
+
+**SE QUISER ANALISAR DADOS DE UMA VERSÃO ESPECIFICAR**
+
+```
+kubectl rollout history deployment.apps/frontend-deployment --revision=2
+```
+> - `--revision=2` = Especifica o numero da versão que deseja voltar 
+ 
+# DEPLOYMENT ROLLBACK
+
+> - É a possibilidade de voltar para uma versão anterio se caso algo der errado
+
+#### Comando para fazer rollback para uma versão anterior 
+
+```
+kubectl rollout undo deployment.apps/frontend-deployment
+```
+#### Comando para fazer rollback para uma versão especifica 
+
+```
+kubectl rollout undo deployment.apps/frontend-deployment --to-revision=5
+```
+
+# ROLLOUT PAUSE & RESUME
+
+#### Comando para pausar a atualização
+
+```
+kubectl rollout pause deployment.apps/frontend-deployment
+```
+
+#### Comando Para retomar a atualização 
+
+```
+kubectl rollout resume deployment.apps/frontend-deployment
+```
+# DEPLOYMENT SCALE UP & DOWN
+
+```
+kubectl scale deployment.apps/frontend-deployment --replicas=11
+```
+
+> - `--replicas=11` =  Especifica a quantidade que deseja tanto aumentar ou diminuir 
+
+
+
+
+
+
+
 
