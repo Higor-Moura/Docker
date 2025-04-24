@@ -1,4 +1,4 @@
-# NAMESPACES
+ # NAMESPACES
 
 > - Utilizado para fazer uma organização logica dentro do cluster
 > - Mecanismo utilizado para isolar os grupos de recursos dentro de um unico cluster
