@@ -4,6 +4,14 @@
 > - Atraves do agente kubelete
 > - O Liveness Probe toma uma ação quando o teste nao é bem sucedido, ou seja essa ação se traduz em reiniciar um determinado container
 
+#### Crie o arquivo yaml para o liveness probes
+
+```
+sudo vi livenessprobe.yml
+```
+
+**Conteudo do arquivo**
+
 ```
 apiVersion: v1
 kind: Pod
@@ -38,3 +46,5 @@ spec:
 # ele vai tentar 3 vezes executar o comando se caso nao der certo ele vai reiniciar o container 
       failureThreshold: 3
 ```
+
+ 
