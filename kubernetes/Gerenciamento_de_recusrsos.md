@@ -1,68 +1,67 @@
-# GERENCIAMENTO DE RECURSOS 
+# GERENCIAMENTO DE RECURSOS
 
-# Vamos criar um arquivo yml especificando o uso MINIMO de memoria e cpu de um container com o REQUESTS
+## Especificando o uso **mínimo** de memória e CPU com `requests`
 
-
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
   name: resources-pod
 spec:
   containers:
-
   - name: apache-container
     image: httpd
-# Definição de recursos
+    # Definição de recursos
     resources:
-# Definição de recursos minimos requests
+      # Definição de recursos mínimos (requests)
       requests:
-# cpu: 500m defini que o container vai consumir metade de uma cpu
+        # cpu: 500m define que o container vai consumir metade de uma CPU
         cpu: "500m"
-# Definição de memoria 
+        # Definição de memória mínima
         memory: "128Mi"
 ```
 
-# Vamos criar um arquivo yml especificando o uso MAXIMO de memoria e cpu de um container com o LIMITS
+---
 
-```
+## Especificando o uso **máximo** de memória e CPU com `limits`
+
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
   name: resources-pod
 spec:
   containers:
-
   - name: apache-container
     image: httpd
     resources:
       requests:
         cpu: "500m"
         memory: "128Mi"
-# Definição de limite maximo de cpu e memoria 
+      # Definição de limites máximos de CPU e memória
       limits:
-# Definição de uso maximo para 1 cpu
         cpu: "1000m"
         memory: "256Mi"
 ```
-# Para Definir em dois ou mais containers 
 
+---
 
-```
+## Definindo `requests` e `limits` para dois ou mais containers
+
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
   name: resources-pod
 spec:
   containers:
-
   - name: apache-container
     image: httpd
     resources:
       requests:
         cpu: "500m"
         memory: "128Mi"
-      limits: 
+      limits:
         cpu: "1000m"
         memory: "256Mi"
 
@@ -72,7 +71,7 @@ spec:
       requests:
         cpu: "400m"
         memory: "64Mi"
-      limits: 
+      limits:
         cpu: "500m"
         memory: "128Mi"
 ```
