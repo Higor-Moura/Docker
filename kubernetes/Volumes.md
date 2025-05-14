@@ -1,13 +1,24 @@
+
 # VOLUMES
 
-> - É um Diretor io onde os containers acessaram para guardar dados
-> - Existem volumes `Efemeros` e `Persistentes`.
+> - Um **volume** no Kubernetes é um diretório acessado pelos containers para armazenar dados.
+> - Existem volumes **efêmeros** e **persistentes**:
 
-> - Volumes `Efemeros`: são dados, volumes temporários que só existem enquanto o pod estiver em execução. Quando o pod é deletado, reiniciado ou realocado para outro nó, o conteúdo do volume é perdido.
+## Volumes Efêmeros
 
-> - Volumes `Persistentes`  são recursos de armazenamento que garantem que os dados de um aplicativo continuem disponíveis, mesmo que o pod que os utiliza seja reiniciado ou removido.
- 
-```
+> - São temporários e duram apenas enquanto o pod está em execução.
+> - Se o pod for deletado, reiniciado ou movido para outro nó, o conteúdo do volume é perdido.
+
+## Volumes Persistentes
+
+> - Garantem que os dados continuem disponíveis mesmo após reinicializações ou exclusões do pod.
+> - São essenciais para aplicações que não podem perder dados.
+
+---
+
+### Exemplo com volume `emptyDir` (efêmero)
+
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -24,4 +35,8 @@ spec:
   - name: cache-storage
     emptyDir: {} 
 ```
-No arquivo a cima estou usando o tipo de volume `emptyDir` ele é um volume efemero, mas ele consegue manter o arquivo intacto se o container sofrer reinicialização 
+
+> Neste exemplo:
+> - Usamos o tipo de volume `emptyDir`, que é efêmero.
+> - O conteúdo do volume **permanece** se o container reiniciar.
+> - **Mas será perdido** se o pod for destruído ou agendado em outro nó.
