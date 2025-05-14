@@ -1,18 +1,20 @@
 # LIVENESS PROBES
 
-> - No Kubernetes são mecanismos que verificam se um contêiner está em um estado saudável e em execução.
-> - Atraves do agente kubelete
-> - O Liveness Probe toma uma ação quando o teste nao é bem sucedido, ou seja essa ação se traduz em reiniciar um determinado container
+- No Kubernetes, são mecanismos que verificam se um contêiner está em um estado saudável e em execução.
+- A verificação é feita através do agente **kubelet**.
+- A **Liveness Probe** toma uma ação quando o teste não é bem-sucedido — essa ação geralmente se traduz em **reiniciar o contêiner**.
 
-#### Crie o arquivo yaml para o liveness probes
+## Criando o arquivo YAML para Liveness Probes
 
-```
+Crie o arquivo chamado `livenessprobe.yml`:
+
+```bash
 sudo vi livenessprobe.yml
 ```
 
-**Conteudo do arquivo**
+### Conteúdo do arquivo
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -20,31 +22,30 @@ metadata:
 spec:
   containers:
   - name: liveness-container-test
-# imagem com diversas ferramentas com linha de comando
     image: busybox
-# passando argumentos para este container 
     args:
-# chamando o shell
-    - /bin/sh
-    - -c
-# comandos que vai ser executado pelo sh
-# criando o arquivo healthy esperando 30 segundo apaga o arquivo criado e espara 600 segundos  
-    - touch /tmp/healthy; sleep 30; rm -f /tmp/healthy; sleep 600
-    
+      - /bin/sh
+      - -c
+      - touch /tmp/healthy; sleep 30; rm -f /tmp/healthy; sleep 600
+
     livenessProbe:
-# executar 
       exec:
         command:
-# ta dando um cat no arquivo criado 
         - cat
         - /tmp/healthy
-# Atributos que devem ser respeitados
-# ele vai esperar 5 segundos ante de executar o cat 
       initialDelaySeconds: 5
-# a cada 5 segundo ele vai fazer a verificação
       periodSeconds: 5
-# ele vai tentar 3 vezes executar o comando se caso nao der certo ele vai reiniciar o container 
       failureThreshold: 3
 ```
 
- 
+## Explicação
+
+- `args:` define os comandos executados no container:
+  - Cria um arquivo `/tmp/healthy`
+  - Aguarda 30 segundos
+  - Remove o arquivo
+  - Aguarda 600 segundos (simulando atividade longa)
+- `livenessProbe:` realiza um `cat /tmp/healthy` para verificar se o arquivo existe
+  - `initialDelaySeconds`: aguarda 5s antes do primeiro teste
+  - `periodSeconds`: faz o teste a cada 5s
+  - `failureThreshold`: se falhar 3 vezes consecutivas, o contêiner é reiniciado
