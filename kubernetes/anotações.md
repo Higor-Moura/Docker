@@ -1,73 +1,75 @@
+
 # KUBERNETES FUNDAMENTOS E CONCEITOS
 
 > O Kubernetes executa verificações de integridade continuamente nos seus serviços, reiniciando os contêineres que falharam ou pararam e só disponibilizando os serviços aos usuários quando confirma que eles estão em execução.
 > Um Administrador/Orquestrador de container
+
 ****
+
 ## DISPONIBILIDADE KUBERNETES
 
-#### SELF-HEALING SYSTEM
+### SELF-HEALING SYSTEM
 
-> - **Sistema de auto correção Ex: imagine que voce tenha um problema na aplicação, o kubernetes te da opções e recursos principalmente automatizados para que o sistema consiga se levantar desse  problema que houve durante seu funcionamento, sistema de auto correção**
+- Sistema de auto correção. Ex: imagine que você tenha um problema na aplicação, o Kubernetes te dá opções e recursos — principalmente automatizados — para que o sistema consiga se recuperar desse problema ocorrido durante seu funcionamento.
 
-#### AUTOSCALE UP/DOWN
+### AUTOSCALE UP/DOWN
 
-> - **Enfatiza a questão da disponibilidade, ele mantem o estado desejado automaticamente**
+- Enfatiza a questão da disponibilidade. Ele mantém o estado desejado automaticamente.
 
-#### DEVOPS AUTOMATION TOOL
+### DEVOPS AUTOMATION TOOL
 
-> - **Automação de tudo que pode ser automatizado para evitar erros humanos**
+- Automação de tudo que pode ser automatizado para evitar erros humanos.
 
-#### FAULT PROTECTION
+### FAULT PROTECTION
 
-> - **Ações preventivas contra a indisponibilidade**
+- Ações preventivas contra a indisponibilidade.
 
 # CLUSTER
 
-**Cluster é tudo que esta dentro do tracejado vermelho**
-**Cluster é um conjunto de maquinas vinculadas, para se indentificar como uma só.**
-**EX: pego 3 vms e crio um cluster das 3, no caso se uma desligar ou cair as outras duas vão manter as aplicações rodando**
+Cluster é tudo que está dentro do tracejado vermelho.  
+Cluster é um conjunto de máquinas vinculadas para se identificar como uma só.  
+Exemplo: pego 3 VMs e crio um cluster com as 3. Se uma desligar ou cair, as outras duas vão manter as aplicações rodando.
 
-![Captura de tela de 2025-04-04 12-01-56](https://github.com/user-attachments/assets/dfb2cbc1-9e35-465d-b425-23ac5ff579c6)
+![Cluster](https://github.com/user-attachments/assets/dfb2cbc1-9e35-465d-b425-23ac5ff579c6)
 
 # CONTROL PLANE
 
 ## etcd
 
-> - **etcd é o mais importante, ele é o banco de dados do kubernetes uma database do tipo chave valor**
+- O `etcd` é o mais importante: ele é o banco de dados do Kubernetes — uma database do tipo chave-valor.
 
 ## API-server
 
-> - api server faz o controle de tudo, tudo passa pela API.
-> - O Kubernetes nada mais é do que uma api, quando voce executa `kubectl get pods` voce ta rodando uma requisição do tipo HTTP do tipo get para a API do kubernetes que é o API-server.
+- O API Server faz o controle de tudo. Tudo passa pela API.
+- O Kubernetes nada mais é do que uma API. Quando você executa `kubectl get pods`, você está rodando uma requisição HTTP do tipo GET para a API do Kubernetes, que é o API Server.
 
-## SCHED
+## Scheduler (SCHED)
 
-> - O sched decide em qual NODE vai colocar um determinado POD
-> - Voce cria um POD ele vai para o estado de peding ate o sched analisar os recursos e escolher o melhor node para adicionar o pode
+- O Scheduler decide em qual Node vai colocar um determinado Pod.
+- Você cria um Pod, ele vai para o estado de *Pending* até o Scheduler analisar os recursos e escolher o melhor node para adicionar o Pod.
 
-## c-m (controller manager)
+## Controller Manager (c-m)
 
-> - É um conceito que ele fica analisando algo para tomar uma ação
-> - Então eles pegaram varios controles do kubernetes compilaram dentro do controller meneger e colocaram ali
-> - EX: quando criamos um job ele pega desmenbra e cria um POD baseado naquelas especificações
+- Ele fica analisando algo para tomar uma ação.
+- Reúne vários controladores do Kubernetes em um só lugar.
+- Exemplo: quando criamos um Job, ele desmembra e cria um Pod baseado naquelas especificações.
 
 # DATA PLANE
 
-## NODE
+## Node
 
-> - Node do dataplane são VMs ou maquinas fisicas, onde vai rodar a aplicação
-> - EX: para melhor entendimento pense que o node é um navio e o kubelet é o capitão do navio
+- Nodes do Data Plane são VMs ou máquinas físicas onde vai rodar a aplicação.
+- Exemplo: pense que o Node é um navio e o Kubelet é o capitão do navio.
 
-#### kubelet
+### Kubelet
 
-> - Ele se conecta diretamente com o API-server do control-plane
-> - Quando voce que acessar um pod que esta dentro de um node, voce fala com o api-server, o api-server fala com kubelet rodando naquele node e então envia os comandos
-> - Kubelet é meio que uma ponte entre o control-plane e o node
+- Se conecta diretamente com o API Server do Control Plane.
+- Quando você acessa um Pod dentro de um Node, você fala com o API Server, que se comunica com o Kubelet naquele Node para enviar os comandos.
+- O Kubelet é uma ponte entre o Control Plane e o Node.
 
-#### k-proxy
+### Kube-proxy
 
-> - K-proxy ele é um container que ja vem pré-instalado quando fazemos um deploy de um cluster
-> - Ele faz algo bem especifico que é criar o service
->   `service` é um IP virtual que vai fazer um balanciamento de carga dos podes isso é feito por default por via regras de iptables no node
->   Então quando voce  cria um service o K-proxy vai la no node e cria todas as regras de ip-tables que ta rodando naquele node
-
+- O `kube-proxy` é um container que já vem pré-instalado ao criar um cluster.
+- Ele é responsável por criar o `Service` — um IP virtual que faz o balanceamento de carga dos Pods.
+- Isso é feito via regras de `iptables` no Node.
+- Quando você cria um `Service`, o `kube-proxy` atualiza as regras de rede nos Nodes para rotear o tráfego adequadamente.
