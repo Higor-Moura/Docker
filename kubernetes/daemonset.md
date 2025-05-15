@@ -1,5 +1,18 @@
-# DAEMONSET
+# DaemonSet no Kubernetes
 
-- REPRESENTA O MESMO CONCEITO COMPUTAVIONAL DE UM DAEMON, O CONCEITO DE UM DAEMON É UM PROGRAMA QUE É EXECUTADO CONTINUAMENTE EM SEGUNDO PLANO EM UM SISTEMA OPERACIONAL EM MULTI TAREFA
+## O que é?
 
+Um **DaemonSet** é um recurso do Kubernetes usado para garantir que **uma cópia de um Pod seja executada em todos (ou em alguns) Nodes** do cluster.
 
+## Para que serve um DaemonSet?
+
+- Implantar **agentes de monitoramento** (ex: Prometheus Node Exporter)
+- Implantar **coletores de logs** (ex: Fluentd, Filebeat)
+- Rodar **ferramentas de segurança** ou **infraestrutura de rede**
+- Execução de containers que precisam estar presentes em todos os nodes
+
+## Como funciona?
+
+- Cria automaticamente um Pod **em cada Node**.
+- Se um novo Node for adicionado ao cluster, o DaemonSet cria um Pod nele.
+- Se um Node for removido, os Pods do DaemonSet naquele Node são automaticamente deletados.
