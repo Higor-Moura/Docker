@@ -17,3 +17,4 @@ Um **DaemonSet** é um recurso do Kubernetes usado para garantir que **uma cópi
 - Se um novo Node for adicionado ao cluster, o DaemonSet cria um Pod nele.
 - Se um Node for removido, os Pods do DaemonSet naquele Node são automaticamente deletados.
 
+ 
