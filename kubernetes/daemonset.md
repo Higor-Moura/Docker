@@ -62,3 +62,16 @@ kubectl get pods -o wide --field-selector spec.nodeName=<nome do node>
 ```
 
 > - Se quiser verificar o outro node basta mudar o nome do node
+
+# DAEMONSET ORPHAN PODS
+- > O que é? Um Orphan Pod (Pod órfão) é um Pod que perdeu seu controlador, ou seja, não está mais vinculado a um Daemonset
+
+- DaemonSet Deletion
+- --cascade=orphan Option
+- DaemonSet Adoption
+
+## Deletando o DaemonSet com o orphan pods 
+
+```
+kubectl delete daemonset <nome do daemonset> --cascade=orphan
+```
